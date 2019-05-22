@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Formation
+ *
+ * @ORM\Table(name="formation")
+ * @ORM\Entity
+ */
+class Formation
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_formation", type="string", length=50, nullable=false)
+     */
+    private $nomFormation;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="annee_debut", type="date", nullable=false)
+     */
+    private $anneeDebut;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="annee_fin", type="date", nullable=false)
+     */
+    private $anneeFin;
+
+
+}

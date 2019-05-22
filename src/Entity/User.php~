@@ -1,0 +1,81 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * User
+ *
+ * @ORM\Table(name="user", indexes={@ORM\Index(name="fk_user_formation", columns={"ce_formation"}), @ORM\Index(name="fk_user_role", columns={"ce_role"}), @ORM\Index(name="fk_user_specialisation", columns={"ce_specialisation"})})
+ * @ORM\Entity
+ */
+class User
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mail", type="string", length=100, nullable=false)
+     */
+    private $mail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=10, nullable=false)
+     */
+    private $telephone;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="password", type="integer", nullable=false)
+     */
+    private $password;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nom", type="integer", nullable=false)
+     */
+    private $nom;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="prenom", type="integer", nullable=false)
+     */
+    private $prenom;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="ce_role", type="integer", nullable=true)
+     */
+    private $ceRole;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="ce_formation", type="integer", nullable=true)
+     */
+    private $ceFormation;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="ce_specialisation", type="integer", nullable=true)
+     */
+    private $ceSpecialisation;
+
+
+}

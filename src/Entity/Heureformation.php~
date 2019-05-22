@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Heureformation
+ *
+ * @ORM\Table(name="heureformation", indexes={@ORM\Index(name="fk_heureformation_matiere", columns={"ce_matiere"}), @ORM\Index(name="fk_heureformation_formation", columns={"ce_formation"})})
+ * @ORM\Entity
+ */
+class Heureformation
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="nb", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $nb;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="ce_formation", type="integer", nullable=true)
+     */
+    private $ceFormation;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="ce_matiere", type="integer", nullable=true)
+     */
+    private $ceMatiere;
+
+
+}

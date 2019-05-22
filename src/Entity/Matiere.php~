@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Matiere
+ *
+ * @ORM\Table(name="matiere", indexes={@ORM\Index(name="fk_matiere_specialisation", columns={"ce_specialisation"})})
+ * @ORM\Entity
+ */
+class Matiere
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_matiere", type="string", length=50, nullable=false)
+     */
+    private $nomMatiere;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="ce_specialisation", type="integer", nullable=true)
+     */
+    private $ceSpecialisation;
+
+
+}

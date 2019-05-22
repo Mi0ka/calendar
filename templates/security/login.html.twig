@@ -1,0 +1,51 @@
+{# templates/security/login.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+{% block stylesheets %}{{ parent() }}{% endblock %}
+{% block navbar %}{{ parent() }}{% endblock %}
+{% block body %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+    <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center"> Connexion </h4></br>
+                        <form action="{{ path('login') }}" method="post">
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-user">&nbsp;&nbsp;</i>
+                                        <label for="username">Nom d'utilisateur&nbsp;&nbsp;</label>
+                                        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                                    </span>
+                                </div>
+                            </div> <!-- form-group// -->
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-lock">&nbsp;&nbsp;</i>
+                                        <label for="password">Mot de passe&nbsp;&nbsp;</label>
+                                        <input type="password" id="password" name="_password" />
+                                    </span>
+                                </div>
+                            </div> <!-- form-group// -->
+                            {#
+                                If you want to control the URL the user
+                                is redirected to on success (more details below)
+                                <input type="hidden" name="_target_path" value="/account" />
+                            #}
+                            <center>
+                                <div class="wrapper">
+                                </br>
+                                    <span class="group-btn">
+                                        <button type="submit" class="btn btn-primary btn-md"> Se connecter &nbsp;<i class="fa fa-sign-in"></i></button>
+                                    </span>
+                                </div>
+                            </center>
+                        </form>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

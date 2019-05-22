@@ -1,0 +1,24 @@
+# config/packages/security.yaml
+security:
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+
+    providers:
+        our_db_provider:
+            entity:
+                class: App\Entity\User
+                property: username
+
+    firewalls:
+        main:
+            anonymous: ~
+            form_login:
+                login_path: login
+                check_path: login
+                default_target_path: home
+            logout:
+                path:   app_logout
+                target: login
+
+    # ...

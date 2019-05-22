@@ -1,0 +1,53 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Calendrier
+ *
+ * @ORM\Table(name="calendrier", indexes={@ORM\Index(name="fk_calendrier_matiere", columns={"ce_matiere"}), @ORM\Index(name="fk_calendrier_formation", columns={"ce_formation"})})
+ * @ORM\Entity
+ */
+class Calendrier
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="heure_debut", type="date", nullable=false)
+     */
+    private $heureDebut;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="heure_fin", type="integer", nullable=false)
+     */
+    private $heureFin;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="ce_formation", type="integer", nullable=true)
+     */
+    private $ceFormation;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="ce_matiere", type="integer", nullable=true)
+     */
+    private $ceMatiere;
+
+
+}

@@ -1,0 +1,74 @@
+<?php
+
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Notification
+ *
+ * @ORM\Table(name="notification", indexes={@ORM\Index(name="fk_notification_user", columns={"ce_user"})})
+ * @ORM\Entity
+ */
+class Notification
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaire", type="string", length=500, nullable=false)
+     */
+    private $commentaire;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_debut_absence", type="date", nullable=false)
+     */
+    private $dateDebutAbsence;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_fin_absence", type="date", nullable=false)
+     */
+    private $dateFinAbsence;
+
+    /**
+     * @var bool|null
+     *
+     * @ORM\Column(name="demande_interverti", type="boolean", nullable=true)
+     */
+    private $demandeInterverti;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_debut_interverti", type="date", nullable=false)
+     */
+    private $dateDebutInterverti;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_fin_interverti", type="date", nullable=false)
+     */
+    private $dateFinInterverti;
+
+    /**
+     * @var int|null
+     *
+     * @ORM\Column(name="ce_user", type="integer", nullable=true)
+     */
+    private $ceUser;
+
+
+}
